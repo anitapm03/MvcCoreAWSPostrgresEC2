@@ -13,7 +13,8 @@ string connectionString =
     builder.Configuration.GetConnectionString("BBDD");
 
 builder.Services.AddDbContext<DepartamentosContext>
-    (options => options.UseNpgsql(connectionString));   
+    (options =>
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 var app = builder.Build();
 
